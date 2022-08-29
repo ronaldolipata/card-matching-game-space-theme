@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/space-favicon.ico"
+      type="image/x-icon"
+    />
+    <title>Card Matching Game - Space Theme</title>
+  </head>
+  <body>
+    <div class="container">
+      <audio src="./assets/audio/space-chillout.mp3"></audio>
+      <audio src="./assets/audio/flip.wav" id="flip"></audio>
+      <audio src="./assets/audio/gameOver.wav" id="game-over"></audio>
+      <audio src="./assets/audio/match.wav" id="match"></audio>
+      <audio src="./assets/audio/victory.wav" id="victory"></audio>
+
+      <div class="overlay-text visible">Click to Start</div>
+
+      <div class="overlay-text" id="game-over-text">
+        GAME OVER<span class="overlay-text-small">Click to Restart</span>
+      </div>
+
+      <div class="overlay-text" id="victory-text">
+        VICTORY<span class="overlay-text-small">Click to Restart</span>
+      </div>
+
+      <h1 class="game-title">
+        Mix <span class="secondary-color">Or</span> Match
+      </h1>
+      <div class="game-info-container">
+        <div class="game-time">
+          Time <span id="time-remaining" class="accent-color">100</span>
+        </div>
+        <div class="game-flips">
+          Flips <span id="flips" class="accent-color">0</span>
+        </div>
+        <div class="game-icons">
+          <div class="info">
+            <img
+              src="./assets/images/Information Sign.png"
+              alt="info"
+              class="icon-info"
+            />
+            <div id="game-info" class="game-info">
+              <div class="game-info-content">
+                <span class="close">&times;</span>
+                <p class="game-info-text">
+                  Card Matching Game - Space Theme<br />
+                  <br />Instructions: <br />1. Click to start the game. <br />2.
+                  Select cards until all cards are matched or the time is over.
+                  <br />3. Repeat.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="sound">
+            <img
+              src="./assets/images/Volume Up.png"
+              alt="volume"
+              class="volume"
+            />
+            <img src="./assets/images/Mute.png" alt="mute" class="mute" />
+          </div>
+        </div>
+      </div>
+      <div class="game-container">
+        <div class="card">
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-right"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-right"
+            alt="constellation"
+          />
+          <div class="card-back card-face">
+            <img
+              src="./assets/images/Meteor-v2.png"
+              class="meteor-back"
+              alt="meteor card back"
+            />
+          </div>
+          <div class="card-front card-face">
+            <img
+              src="./assets/images/Earth.png"
+              class="card-value"
+              alt="earth"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-right"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-right"
+            alt="constellation"
+          />
+          <div class="card-back card-face">
+            <img
+              src="./assets/images/Meteor-v2.png"
+              class="meteor-back"
+              alt="meteor card back"
+            />
+          </div>
+          <div class="card-front card-face">
+            <img
+              src="./assets/images/Earth.png"
+              class="card-value"
+              alt="earth"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-right"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-right"
+            alt="constellation"
+          />
+          <div class="card-back card-face">
+            <img
+              src="./assets/images/Meteor-v2.png"
+              class="meteor-back"
+              alt="meteor card back"
+            />
+          </div>
+          <div class="card-front card-face">
+            <img
+              src="./assets/images/Meteor.png"
+              class="card-value"
+              alt="Meteor"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-right"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-right"
+            alt="constellation"
+          />
+          <div class="card-back card-face">
+            <img
+              src="./assets/images/Meteor-v2.png"
+              class="meteor-back"
+              alt="meteor card back"
+            />
+          </div>
+          <div class="card-front card-face">
+            <img
+              src="./assets/images/Meteor.png"
+              class="card-value"
+              alt="Meteor"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-right"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-right"
+            alt="constellation"
+          />
+          <div class="card-back card-face">
+            <img
+              src="./assets/images/Meteor-v2.png"
+              class="meteor-back"
+              alt="meteor card back"
+            />
+          </div>
+          <div class="card-front card-face">
+            <img src="./assets/images/Moon.png" class="card-value" alt="Moon" />
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-right"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-right"
+            alt="constellation"
+          />
+          <div class="card-back card-face">
+            <img
+              src="./assets/images/Meteor-v2.png"
+              class="meteor-back"
+              alt="meteor card back"
+            />
+          </div>
+          <div class="card-front card-face">
+            <img src="./assets/images/Moon.png" class="card-value" alt="Moon" />
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-right"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-right"
+            alt="constellation"
+          />
+          <div class="card-back card-face">
+            <img
+              src="./assets/images/Meteor-v2.png"
+              class="meteor-back"
+              alt="meteor card back"
+            />
+          </div>
+          <div class="card-front card-face">
+            <img
+              src="./assets/images/Rocket.png"
+              class="card-value"
+              alt="Rocket"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-right"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-right"
+            alt="constellation"
+          />
+          <div class="card-back card-face">
+            <img
+              src="./assets/images/Meteor-v2.png"
+              class="meteor-back"
+              alt="meteor card back"
+            />
+          </div>
+          <div class="card-front card-face">
+            <img
+              src="./assets/images/Rocket.png"
+              class="card-value"
+              alt="Rocket"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-right"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-right"
+            alt="constellation"
+          />
+          <div class="card-back card-face">
+            <img
+              src="./assets/images/Meteor-v2.png"
+              class="meteor-back"
+              alt="meteor card back"
+            />
+          </div>
+          <div class="card-front card-face">
+            <img
+              src="./assets/images/Sattelite.png"
+              class="card-value"
+              alt="Sattelite"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-right"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-right"
+            alt="constellation"
+          />
+          <div class="card-back card-face">
+            <img
+              src="./assets/images/Meteor-v2.png"
+              class="meteor-back"
+              alt="meteor card back"
+            />
+          </div>
+          <div class="card-front card-face">
+            <img
+              src="./assets/images/Sattelite.png"
+              class="card-value"
+              alt="Sattelite"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-right"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-right"
+            alt="constellation"
+          />
+          <div class="card-back card-face">
+            <img
+              src="./assets/images/Meteor-v2.png"
+              class="meteor-back"
+              alt="meteor card back"
+            />
+          </div>
+          <div class="card-front card-face">
+            <img
+              src="./assets/images/Saturn.png"
+              class="card-value"
+              alt="Saturn"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-right"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-right"
+            alt="constellation"
+          />
+          <div class="card-back card-face">
+            <img
+              src="./assets/images/Meteor-v2.png"
+              class="meteor-back"
+              alt="meteor card back"
+            />
+          </div>
+          <div class="card-front card-face">
+            <img
+              src="./assets/images/Saturn.png"
+              class="card-value"
+              alt="Saturn"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-right"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-right"
+            alt="constellation"
+          />
+          <div class="card-back card-face">
+            <img
+              src="./assets/images/Meteor-v2.png"
+              class="meteor-back"
+              alt="meteor card back"
+            />
+          </div>
+          <div class="card-front card-face">
+            <img
+              src="./assets/images/Spaceship.png"
+              class="card-value"
+              alt="Spaceship"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-right"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-right"
+            alt="constellation"
+          />
+          <div class="card-back card-face">
+            <img
+              src="./assets/images/Meteor-v2.png"
+              class="meteor-back"
+              alt="meteor card back"
+            />
+          </div>
+          <div class="card-front card-face">
+            <img
+              src="./assets/images/Spaceship.png"
+              class="card-value"
+              alt="Spaceship"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-right"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-right"
+            alt="constellation"
+          />
+          <div class="card-back card-face">
+            <img
+              src="./assets/images/Meteor-v2.png"
+              class="meteor-back"
+              alt="meteor card back"
+            />
+          </div>
+          <div class="card-front card-face">
+            <img src="./assets/images/Sun.png" class="card-value" alt="Sun" />
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-top-right"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-left"
+            alt="constellation"
+          />
+          <img
+            src="./assets/images/Constellation.png"
+            class="constellation constellation-bottom-right"
+            alt="constellation"
+          />
+          <div class="card-back card-face">
+            <img
+              src="./assets/images/Meteor-v2.png"
+              class="meteor-back"
+              alt="meteor card back"
+            />
+          </div>
+          <div class="card-front card-face">
+            <img src="./assets/images/Sun.png" class="card-value" alt="Sun" />
+          </div>
+        </div>
+      </div>
+      <div class="attributions">
+        <a href="https://www.vecteezy.com/free-vector/space"
+          >Space Vectors by Vecteezy</a
+        >
+        <br />
+        <br />
+        <a
+          href="https://pixabay.com/users/penguinmusic-24940186/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=14194"
+          >penguinmusic</a
+        >
+        from
+        <a
+          href="https://pixabay.com/music//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=14194"
+          >Pixabay</a
+        >
+      </div>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
